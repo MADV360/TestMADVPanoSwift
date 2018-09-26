@@ -7,15 +7,36 @@
 //
 
 import UIKit
+import MADVPano_Swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    static func testMADVPanoStitching() {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        if let enumerator = FileManager.default.enumerator(atPath: documentsPath) {
+            var files = [NSString]()
+            for file in enumerator {
+                let fileName = file as! NSString
+                if (fileName.pathExtension.lowercased() == "jpg") {
+                    files.append(fileName)
+                }
+            }
+            
+            for fileName in files {
+                let sourcePath = documentsPath.appending("/\(fileName as String)")
+                let destPath = sourcePath.appending(".stitched.jpg")
+                let tempLUTDirectory = documentsPath
+                MadvImage.renderMadvJPEG(to: destPath, from: sourcePath, withLUTDir: tempLUTDirectory, destWidth: 0, destHeight: 0, withoutStitching: false)
+            }
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        AppDelegate.testMADVPanoStitching()
         return true
     }
 
