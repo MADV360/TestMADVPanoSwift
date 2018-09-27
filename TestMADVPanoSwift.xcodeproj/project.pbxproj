@@ -12,11 +12,26 @@
 		BB815816215B873B00A53979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB815814215B873B00A53979 /* Main.storyboard */; };
 		BB815818215B874200A53979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB815817215B874200A53979 /* Assets.xcassets */; };
 		BB81581B215B874200A53979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB815819215B874200A53979 /* LaunchScreen.storyboard */; };
-		BB815824215B878400A53979 /* MADVPano_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB815823215B878400A53979 /* MADVPano_Swift.framework */; };
 		BB815826215B8F7200A53979 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BB815825215B8F7200A53979 /* libc++.tbd */; };
 		BB815828215B8F7900A53979 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BB815827215B8F7900A53979 /* libiconv.tbd */; };
 		BB81582A215B8F7E00A53979 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BB815829215B8F7D00A53979 /* libxml2.tbd */; };
+		BB81582C215C717900A53979 /* MADVPano_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB81582B215C717900A53979 /* MADVPano_Swift.framework */; };
+		BB81582E215C718700A53979 /* MADVPano_Swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB81582B215C717900A53979 /* MADVPano_Swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BB81582F215C718700A53979 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BB81582E215C718700A53979 /* MADVPano_Swift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BB81580D215B873A00A53979 /* TestMADVPanoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMADVPanoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +41,10 @@
 		BB815817215B874200A53979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB81581A215B874200A53979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB81581C215B874200A53979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB815823215B878400A53979 /* MADVPano_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MADVPano_Swift.framework; sourceTree = "<group>"; };
 		BB815825215B8F7200A53979 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		BB815827215B8F7900A53979 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		BB815829215B8F7D00A53979 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		BB81582B215C717900A53979 /* MADVPano_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MADVPano_Swift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,8 +54,8 @@
 			files = (
 				BB81582A215B8F7E00A53979 /* libxml2.tbd in Frameworks */,
 				BB815828215B8F7900A53979 /* libiconv.tbd in Frameworks */,
+				BB81582C215C717900A53979 /* MADVPano_Swift.framework in Frameworks */,
 				BB815826215B8F7200A53979 /* libc++.tbd in Frameworks */,
-				BB815824215B878400A53979 /* MADVPano_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,10 +95,10 @@
 		BB815822215B878300A53979 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB81582B215C717900A53979 /* MADVPano_Swift.framework */,
 				BB815829215B8F7D00A53979 /* libxml2.tbd */,
 				BB815827215B8F7900A53979 /* libiconv.tbd */,
 				BB815825215B8F7200A53979 /* libc++.tbd */,
-				BB815823215B878400A53979 /* MADVPano_Swift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,6 +113,7 @@
 				BB815809215B873A00A53979 /* Sources */,
 				BB81580A215B873A00A53979 /* Frameworks */,
 				BB81580B215B873A00A53979 /* Resources */,
+				BB81582F215C718700A53979 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

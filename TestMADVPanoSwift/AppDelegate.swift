@@ -6,7 +6,9 @@
 //  Copyright © 2018年 QiuDong. All rights reserved.
 //
 
+/** This is a demo for stitching JPEG images with MADVPano_Swift.framework */
 import UIKit
+// Import the framework:
 import MADVPano_Swift
 
 @UIApplicationMain
@@ -20,16 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var files = [NSString]()
             for file in enumerator {
                 let fileName = file as! NSString
-                if (fileName.pathExtension.lowercased() == "jpg") {
+                if (fileName.pathExtension.lowercased() == "jpg" && !fileName.lowercased.hasSuffix(".stitched.jpg")) {
                     files.append(fileName)
                 }
             }
-            
+            // Enumerate in all non-stitched .jpg files under documentation directory:
             for fileName in files {
                 let sourcePath = documentsPath.appending("/\(fileName as String)")
                 let destPath = sourcePath.appending(".stitched.jpg")
-                let tempLUTDirectory = documentsPath
-                MadvImage.renderMadvJPEG(to: destPath, from: sourcePath, withLUTDir: tempLUTDirectory, destWidth: 0, destHeight: 0, withoutStitching: false)
+                // Create(if not exists) a temporary path for storing LUT data files, which will be deleted after stitching:
+                let tempLUTDirectory = MadvImage.makeTempLUTFolder(for: sourcePath)
+                // Pass (0,0) as (destWidth,destHeight) to make stitched image exactly the same size as the original one:
+                MadvImage.renderMadvJPEG(to: destPath, from: sourcePath, withLUTDir: tempLUTDirectory, destWidth:0, destHeight:0, withoutStitching:false)
             }
         }
     }
